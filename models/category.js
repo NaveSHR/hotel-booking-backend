@@ -5,6 +5,7 @@ const categorySchema = mongoose.Schema(
     name: {
       type: String,
       required: true,
+      unique: true,  //for name = primarykey
     },
     description: {
       type: String,
@@ -13,6 +14,15 @@ const categorySchema = mongoose.Schema(
     price: {
       type: Number,
       required: true,
+    },
+    features : [           // this is a list 
+      {
+        type : String,
+        
+      }
+    ],
+    image : {
+      type : String,
     }
   }
 );
