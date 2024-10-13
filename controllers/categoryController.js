@@ -27,9 +27,10 @@ export function createCategory(req, res) {
   const newCategory = new Category(category);
   newCategory
     .save()
-    .then(() => {
+    .then((result/*any name (saved obj)*/) => {
       res.json({
         message: "Category created successfully",
+        result : result
       });
     })
     .catch((err) => {
