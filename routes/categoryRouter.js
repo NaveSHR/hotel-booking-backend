@@ -1,12 +1,12 @@
 import express from "express";
 import { createCategory, getCategories } from "../controllers/categoryController.js";
 
-const router = express.Router();
+const categoryRouter = express.Router();
 
 // POST route to create a new category (admin only)
-router.post("/categories", createCategory);
+categoryRouter.post("/", createCategory);
 
 // GET route to fetch all categories (public)
-router.get("/categories", getCategories);
+categoryRouter.get("/", getCategories);
 
-export default router;
+export default categoryRouter;
