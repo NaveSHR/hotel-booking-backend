@@ -22,7 +22,7 @@ const categorySchema = mongoose.Schema(
       }
     ],
     image : {
-      type : String,
+      type : String, //save as a link
     }
   }
 );
