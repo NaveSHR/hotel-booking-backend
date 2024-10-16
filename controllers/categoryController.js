@@ -79,7 +79,7 @@ export function deleteCategory(req,res){
 
 
 
-/*// Function to get all categories (Anyone can view categories)
+// Function to get all categories (Anyone can view categories)
 export function getCategories(req, res) {
   Category.find()
     .then((list) => {
@@ -93,4 +93,4 @@ export function getCategories(req, res) {
         error: err.message,
       });
     });
-}*/
+}

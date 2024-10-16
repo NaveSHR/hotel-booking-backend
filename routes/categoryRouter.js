@@ -1,5 +1,5 @@
 import express from "express";
-import { createCategory, deleteCategory, /*getCategories*/ } from "../controllers/categoryController.js";
+import { createCategory, deleteCategory, getCategories } from "../controllers/categoryController.js";
 
 const categoryRouter = express.Router();
 
@@ -20,9 +20,9 @@ categoryRouter.post("/", createCategory);
     
  
 //})
-categoryRouter.delete("/:name",deleteCategory);
+categoryRouter.delete("/:name",deleteCategory); // delete by data set ID
 
 // GET route to fetch all categories (public)
-//categoryRouter.get("/", getCategories);
+categoryRouter.get("/", getCategories);
 
 export default categoryRouter;
