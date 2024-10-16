@@ -62,7 +62,7 @@ export function deleteCategory(req,res){
   const name/*(any name2)*/ = req.params.name;     //req.params = http req end variable,.name(any name1),
                                     //req.params.name = take the name variable from http req end
 
-  Category.deleteOne({name : name/*(any name2)*/}).then(()=>{
+  Category.deleteOne({name/*data base*/ : name/*(any name2)*/}).then(()=>{
     res.json({
       message : "category deleted"
     })
@@ -94,3 +94,33 @@ export function getCategories(req, res) {
       });
     });
 }
+
+ export function getCategoryByName(req, res) {
+
+    const name = req.params.name;
+    Category.findOne({ name: name }).then(
+
+      (result)=>{
+
+        if(result == null){
+          res.json({
+            message : "Category not found"
+          })
+        }else{
+          res.json({
+            category : result
+          })
+        }
+      }
+    ).catch(
+      ()=>{
+        res.json({
+          message : "Failed to get category"
+        })
+      }
+    )
+
+ }
+
+
+
