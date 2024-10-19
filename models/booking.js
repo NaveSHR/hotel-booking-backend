@@ -38,7 +38,7 @@ const bookingSchema = new mongoose.Schema({
     type: String,
     default: ""
   },
-  timestamp:{
+  timestamp:{                //for get booking time
     type: Date,
     default: Date.now
   }
