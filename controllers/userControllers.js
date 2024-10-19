@@ -81,3 +81,17 @@ export function isAdminValid(req){        //giving a req for this funtion search
   return true;        //if req skip both above conditions
   
 }
+
+export function isCustomerValid(req){       //because valid customer only put bookings
+
+  if(req.user == null){
+    return false
+  }
+  console.log(req.user)
+  if(req.user.type != "customer"){
+    return false
+  }
+
+  return true;
+  
+}
