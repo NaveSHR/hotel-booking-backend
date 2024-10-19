@@ -68,3 +68,16 @@ export function loginUser(req, res) {
     }
   });
 }
+
+export function isAdminValid(req){        //giving a req for this funtion search is there admin . if it return true
+                                          //export for other files
+
+  if(req.user == null){           //dont need a req or res here  just return the value
+    return false
+  }
+  if(req.user.type != "admin"){    //if any user found but user type not admin
+    return false
+  }
+  return true;        //if req skip both above conditions
+  
+}

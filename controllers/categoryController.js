@@ -1,4 +1,5 @@
 import Category from "../models/category.js";  //.js for module type project
+import {isAdminValid} from "./userControllers.js"
 
 
 // Function to create a new category (Only admin can create)
@@ -98,7 +99,7 @@ export function getCategories(req, res) {
  export function getCategoryByName(req, res) {
 
     const name = req.params.name;
-    Category.findOne({ name: name }).then(
+    Category.findOne({ name/*field*/: name }).then(
 
       (result)=>{
 
@@ -121,6 +122,32 @@ export function getCategories(req, res) {
     )
 
  }
+
+ export function updateCategory(req,res){  
+
+  if(!isAdminValid(req)/*calling the isAdminValid function*/){
+    res.status(403).json({
+      message : "Unauthorized"
+    })
+    return
+  }
+
+  const name = req.params.name; //take the unique id
+
+  Category.updateOne({name : name},req.body /*where to update*/).then(
+    ()=>{
+    res.json({
+      message : "Category updated successfully"
+    })
+  }).catch(
+    ()=>{
+      res.json({
+        message : "Failed to update category"
+      })
+    }
+  )
+}
+
 
 
 
