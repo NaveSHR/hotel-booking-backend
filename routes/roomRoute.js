@@ -5,7 +5,7 @@ const roomRouter = express.Router();
 
 roomRouter.post("/", createRoom)
 roomRouter.delete("/:roomId", deleteRoom)
-roomRouter.get("/", getRooms)
+roomRouter.get("/", getRooms)   //before id req   place other reqs
 roomRouter.get("/by-category/:category", getRoomsByCategory)  //before id req   place other reqs
 roomRouter.get("/:roomId", findRoomById)
 roomRouter.put("/:roomId", updateRoom)

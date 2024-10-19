@@ -64,7 +64,7 @@ export function deleteRoom(req,res){
   )
 }
 
-export function findRoomById(req,res){    //for looking room status (its break,good,special description)
+export function findRoomById(req,res){    //for looking rooms one by one (its break,good,special description)
                                           //anyone can be able to search this. so no isAdminValue
   const roomId = req.params.roomId
 
@@ -145,7 +145,7 @@ export function updateRoom(req,res){
     }
   )
 }
-export function getRoomsByCategory(req,res){
+export function getRoomsByCategory(req,res){   //get rooms category wise
   const category = req.params.category
   Room.find({category:category}).then(
     (result)=>{
