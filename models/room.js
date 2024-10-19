@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const roomSchema = new mongoose.Schema({
-  roomId : {
+  roomId : {      //use roomID becuase DB has ID
     type : Number,
     required : true,
     unique : true
@@ -35,6 +35,7 @@ const roomSchema = new mongoose.Schema({
     type : String,
     default : ""
   }
+  //we can use isActive for hide somethings in the roomschema
 })
 
 const Room = mongoose.model("Rooms",roomSchema)
