@@ -8,11 +8,14 @@ import dotenv from 'dotenv'
 import categoryRouter from './routes/categoryRouter.js'
 import roomRouter from './routes/roomRoute.js'
 import bookingRouter from './routes/bookingRoute.js'
-
+import cors from 'cors'
+//import cors
 
 dotenv.config()
 
 const app = express()
+
+app.use(cors()) //by using this respond to any request come from anywhere (ex;backend = local5000, front=local5173)
 
 
 app.use(bodyParser.json())
