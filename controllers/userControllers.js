@@ -75,7 +75,7 @@ export function isAdminValid(req){        //giving a req for this funtion search
   if(req.user == null){           //dont need a req or res here  just return the value
     return false
   }
-  if(req.user.type != "admin"){    //if any user found but user type not admin
+  if(req.use.type != "admin"){    //if any user found but user type not admin
     return false
   }
   return true;        //if req skip both above conditions
@@ -94,4 +94,24 @@ export function isCustomerValid(req){       //because valid customer only put bo
 
   return true;
   
+}
+
+export function getUser(req,res){
+
+  const user = req.body.user;
+  if(user == null){
+
+    res.json({
+      message : "not found"
+    })
+  }else{
+
+    res.json({
+      message : "user found",
+      user : user
+    })
+  }
+
+
+
 }
